@@ -1,0 +1,145 @@
+service: moms-serverless
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.9
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+  environment:
+    DJANGO_SETTINGS_MODULE: moms_project.settings.serverless
+    STAGE: ${self:provider.stage}
+    DB_HOST: ${self:custom.rds.host}
+    DB_NAME: ${self:custom.rds.database}
+    DB_USER: ${self:custom.rds.username}
+    DB_PASSWORD: ${self:custom.rds.password}
+    STATIC_BUCKET: ${self:custom.staticBucket}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - s3:GetObject
+            - s3:PutObject
+          Resource: "arn:aws:s3:::${self:custom.staticBucket}/*"
+        - Effect: Allow
+          Action:
+            - rds:*
+          Resource: "*"
+
+custom:
+  staticBucket: ${self:service}-${self:provider.stage}-static
+  pythonRequirements:
+    dockerizePip: true
+    slim: true
+    layer: true
+  rds:
+    host: ${cf:${self:service}-${self:provider.stage}-db.RDSEndpoint}
+    database: moms_db
+    username: ${ssm:/moms/${self:provider.stage}/db/username~true}
+    password: ${ssm:/moms/${self:provider.stage}/db/password~true}
+  wsgi:
+    app: moms_project.wsgi.application
+    packRequirements: false
+  capacities:
+    - function: standardApi
+      memorySize: 256
+      timeout: 30
+    - function: containerizedApi
+      memorySize: 1024
+      timeout: 60
+
+package:
+  individually: true
+  patterns:
+    - '!node_modules/**'
+    - '!frontend/**'
+    - '!venv/**'
+    - '!deployment/**'
+    - '!.github/**'
+
+functions:
+  # Standard Lambda function for API endpoints
+  standardApi:
+    handler: wsgi_handler.handler
+    package:
+      patterns:
+        - '!backend/apps/analytics/**'
+        - '!backend/apps/automation/**'
+        - '!backend/apps/compliance/**'
+    layers:
+      - {Ref: PythonRequirementsLambdaLayer}
+    events:
+      - http:
+          path: /api/{proxy+}
+          method: ANY
+          cors: true
+      - http:
+          path: /admin/{proxy+}
+          method: ANY
+          cors: true
+
+  # Containerized Lambda function for heavier modules
+  containerizedApi:
+    image:
+      uri: ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${self:service}-${self:provider.stage}:latest
+    events:
+      - http:
+          path: /api/analytics/{proxy+}
+          method: ANY
+          cors: true
+      - http:
+          path: /api/automation/{proxy+}
+          method: ANY
+          cors: true
+      - http:
+          path: /api/compliance/{proxy+}
+          method: ANY
+          cors: true
+
+  # Function to handle migrations
+  migrations:
+    handler: handlers/db_handlers.run_migrations
+    layers:
+      - {Ref: PythonRequirementsLambdaLayer}
+
+  # Function to collect static files
+  collectstatic:
+    handler: handlers/static_handlers.collect_static
+    layers:
+      - {Ref: PythonRequirementsLambdaLayer}
+    environment:
+      STATIC_BUCKET: ${self:custom.staticBucket}
+
+resources:
+  Resources:
+    # S3 bucket for static files
+    StaticBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.staticBucket}
+        AccessControl: PublicRead
+        CorsConfiguration:
+          CorsRules:
+            - AllowedHeaders: ['*']
+              AllowedMethods: [GET]
+              AllowedOrigins: ['*']
+              MaxAge: 3000
+
+    # S3 bucket policy
+    StaticBucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket: !Ref StaticBucket
+        PolicyDocument:
+          Statement:
+            - Action: s3:GetObject
+              Effect: Allow
+              Resource: !Join ['', ['arn:aws:s3:::', !Ref StaticBucket, '/*']]
+              Principal: '*'
+
+plugins:
+  - serverless-python-requirements
+  - serverless-wsgi
+  - serverless-deployment-bucket
