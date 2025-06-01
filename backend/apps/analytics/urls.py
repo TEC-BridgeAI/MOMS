@@ -7,6 +7,9 @@ router = DefaultRouter()
 router.register(r'dashboards', DashboardViewSet)
 router.register(r'reports', ReportViewSet)
 
-urlpatterns = [
+urlpatterns = router.urls
+"""
+[
     path('', include(router.urls)),
 ]
+"""

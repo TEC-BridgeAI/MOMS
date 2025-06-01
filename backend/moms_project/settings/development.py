@@ -39,3 +39,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 INSTALLED_APPS += ['debug_toolbar']
 MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
 INTERNAL_IPS = ['127.0.0.1']
+
+# Add this function to your development.py file
+def show_toolbar(request):
+    return hasattr(request, 'user') and request.user.is_authenticated and request.user.is_superuser
+
+# Add this configuration
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TOOLBAR_CALLBACK': 'moms_project.settings.development.show_toolbar',
+}
