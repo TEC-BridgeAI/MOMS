@@ -24,6 +24,9 @@ urlpatterns = [
     path('api/project/', include('apps.project.urls')),
     path('api/strategy/', include('apps.strategy.urls')),
     path('api/supply_chain/', include('apps.supply_chain.urls')),
+
+    # Add browsable API
+    path('api-auth/', include('rest_framework.urls')), 
 ]
 
 if settings.DEBUG:
