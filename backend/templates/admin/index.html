@@ -1,0 +1,63 @@
+{% extends "admin/index.html" %}
+{% load i18n %}
+
+{% block content %}
+{{ block.super }}
+<div class="module" style="margin-top: 20px;">
+    <h2>API Endpoints</h2>
+    <table style="width: 100%;">
+        <tr>
+            <th style="text-align: left;">Module</th>
+            <th style="text-align: left;">API URL</th>
+        </tr>
+        <tr>
+            <td>HR</td>
+            <td><a href="/api/hr/" target="_blank">/api/hr/</a></td>
+        </tr>
+        <tr>
+            <td>Analytics</td>
+            <td><a href="/api/analytics/" target="_blank">/api/analytics/</a></td>
+        </tr>
+        <tr>
+            <td>Automation</td>
+            <td><a href="/api/automation/" target="_blank">/api/automation/</a></td>
+        </tr>
+        <tr>
+            <td>Collaboration</td>
+            <td><a href="/api/collaboration/" target="_blank">/api/collaboration/</a></td>
+        </tr>
+        <tr>
+            <td>Compliance</td>
+            <td><a href="/api/compliance/" target="_blank">/api/compliance/</a></td>
+        </tr>
+        <tr>
+            <td>CRM</td>
+            <td><a href="/api/crm/" target="_blank">/api/crm/</a></td>
+        </tr>
+        <tr>
+            <td>Finance</td>
+            <td><a href="/api/finance/" target="_blank">/api/finance/</a></td>
+        </tr>
+        <tr>
+            <td>Project</td>
+            <td><a href="/api/project/" target="_blank">/api/project/</a></td>
+        </tr>
+        <tr>
+            <td>Strategy</td>
+            <td><a href="/api/strategy/" target="_blank">/api/strategy/</a></td>
+        </tr>
+        <tr>
+            <td>Supply Chain</td>
+            <td><a href="/api/supply_chain/" target="_blank">/api/supply_chain/</a></td>
+        </tr>
+        <tr>
+            <td>Token (JWT)</td>
+            <td><a href="/api/token/" target="_blank">/api/token/</a></td>
+        </tr>
+        <tr>
+            <td>Token Refresh</td>
+            <td><a href="/api/token/refresh/" target="_blank">/api/token/refresh/</a></td>
+        </tr>
+    </table>
+</div>
+{% endblock %}
