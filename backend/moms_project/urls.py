@@ -5,9 +5,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse("MOMS API Server")
+    return render(request, 'index.html')
 
 urlpatterns = [
     path('', index, name='index'),  # main app point to admin site

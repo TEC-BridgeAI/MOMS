@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOMS - Modular Organizational Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #0066cc;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .module {
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .module h3 {
+            color: #0066cc;
+            margin-top: 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Modular Organizational Management System (MOMS)</h1>
+            <p>A comprehensive business management platform by <a href="https://tec-bridge.ai" target="_blank" style="color:white;">TEC-Bridge.AI</a></p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Welcome to MOMS</h2>
+            <p>
+                The Modular Organizational Management System (MOMS) is an integrated platform designed to streamline 
+                business operations across multiple functional modulars. Our system provides powerful tools for managing 
+                human resources, customer relationships, finance, project management, data analytics, automation, collaboration, compliance, strategy, supply chain, etc. You can easily remove any of the modules and/or add modules not provided yet.
+                MOMS is built to adapt to the unique needs of your organization, ensuring flexibility and scalability. The backend system is built on Django, providing a robust and secure foundation for your business processes, and the frontend is built with Vue, ensuring a modern and responsive user experience.
+            </p>
+        </section>
+
+        <section>
+            <h2>Key Modules</h2>
+            <div class="modules">
+                <div class="module">
+                    <h3>HR Management</h3>
+                    <p>Manage employee data, payroll, attendance, and performance evaluations.</p>
+                </div>
+                <div class="module">
+                    <h3>CRM</h3>
+                    <p>Track customer interactions, manage leads, and improve customer relationships.</p>
+                </div>
+                <div class="module">
+                    <h3>Finance</h3>
+                    <p>Handle accounting, budgeting, invoicing, and financial reporting.</p>
+                </div>
+                <div class="module">
+                    <h3>Project Management</h3>
+                    <p>Plan, execute, and monitor projects with task tracking and resource allocation.</p>
+                </div>
+                <div class="module">
+                    <h3>Analytics</h3>
+                    <p>Gain insights through data visualization and business intelligence tools.</p>
+                </div>
+                <div class="module">
+                    <h3>Automation</h3>
+                    <p>Automate routine tasks and workflows to improve efficiency.</p>
+                </div>
+                <div class="module">
+                    <h3>Collaboration</h3>
+                    <p>Enable team communication and document sharing across departments.</p>
+                </div>
+                <div class="module">
+                    <h3>Compliance</h3>
+                    <p>Ensure adherence to regulations and internal policies.</p>
+                </div>
+                <div class="module">
+                    <h3>Strategy</h3>
+                    <p>Develop and track strategic initiatives and business goals.</p>
+                </div>
+                <div class="module">
+                    <h3>Supply Chain</h3>
+                    <p>Manage procurement, inventory, and supplier relationships.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>API Access</h2>
+            <p>
+                MOMS provides a comprehensive RESTful API for integrating with other systems.
+                Access our API documentation at <a href="/admin/">Admin Portal</a>.
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Modular Organizational Management System (MOMS) by <a href="https://tec-bridge.ai" target="_blank" style="color:white;">TEC-Bridge.AI</a></p>
+        </div>
+    </footer>
+</body>
+</html>
