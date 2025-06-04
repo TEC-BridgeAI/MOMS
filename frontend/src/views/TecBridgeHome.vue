@@ -7,7 +7,7 @@
           <img src="@/assets/logo.png" alt="TEC-Bridge Logo" class="logo">
           <div>
             <h1>TEC-Bridge AI</h1>
-            <p>Bridging Technology, Education, and Culture with AI</p>
+            <p>Serving in Technology, Education, and Culture</p>
           </div>
         </div>
       </div>
@@ -16,23 +16,40 @@
     <!-- Our Services -->
     <section class="services">
       <div class="container">
-        <h2>Our Services</h2>
+        <h2>Services</h2>
         <div class="services-grid">
           <div class="service-card">
-            <h3>Internship</h3>
-            <p>Gain practical experience and professional skills through our structured internship programs in technology and business fields.</p>
-          </div>
-          <div class="service-card">
             <h3>Education Services</h3>
-            <p>Access quality education resources and programs designed to enhance learning outcomes and develop critical skills.</p>
+            <p>At TEC-Bridge AI, we advance education with Internsthip and through AI-driven research and development. Our solutions enhance teaching, optimize learning, and foster cross-cultural communication. By integrating intelligent tools like adaptive learning systems and language translation technologies, we empower educators and students while creating a more inclusive, efficient, and engaging learning environment.</p>
           </div>
           <div class="service-card">
             <h3>Business Support</h3>
-            <p>Receive comprehensive assistance for business development, including technology integration, strategy, and operational improvements.</p>
+            <p>At TEC-Bridge AI, we empower businesses with advanced AI solutions, including data analytics and visualization for informed decision-making and cloud migration for seamless operations. Our services enhance cybersecurity, automate workflows using traditional, generative, and agentic AI, and support secure website development. These tools drive efficiency, innovation, and growth in a competitive digital landscape.</p>
           </div>
           <div class="service-card">
-            <h3>Cross-Cultural Connection</h3>
-            <p>Bridge cultural gaps through programs that foster understanding, collaboration, and global perspective development.</p>
+            <h3>Community Services</h3>
+            <p>At TEC-Bridge AI, we foster cross-cultural connections through our community engagement program, and develop tools to promote communication such as natural language translation, we break down language barriers for seamless communication. We aim to promote cultural understanding, encouraging respect and collaboration in diverse communities. These innovations empower individuals and organizations to thrive in a globally connected world.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="programs">
+      <div class="container">
+        <h2>Programs</h2>
+        <div class="programs-grid">
+          <div class="program-card">
+            <h3>Student Internship</h3>
+            <p>Join us at TEC-Bridge AI for an exciting opportunity to apply for our internship program! Whether you're a current student or a recent graduate, we invite you to become part of a dynamic team where you can gain hands-on experience in the field of AI. This is your chance to enhance your skills, network with industry professionals, and contribute to innovative projects that are shaping the future. Don't miss the opportunity to kickstart your career—apply today!</p>
+          </div>
+          <div class="program-card">
+            <h3>Research & Development</h3>
+            <p>While we are developing our own apps and platforms, we invite business operators to partner with us in developing AI-based apps, APIs, or agents tailored to your unique needs. Our research and development specializes in creating innovative solutions that can enhance your operations elevate customer experiences. Let us help you streamline your processes and drive growth in your business. Join us in transforming your ideas into powerful digital that will set you apart in the market.</p>
+          </div>
+          <div class="program-card">
+            <h3>Community Engagement</h3>
+            <p>TEC-Bridge AI is committed to fostering cross-cultural connections and enriching communities through our support of diverse cultural and artistic initiatives. We actively engage in partnerships with events such as the Lion's Music Scholarship Competition, International Children's Festivals, Asian Festivals, and Spring Festivals. By supporting these events, we contribute to cultural appreciation, inclusivity, and the empowerment of future generations through music, arts, and community collaboration.</p>
           </div>
         </div>
       </div>
@@ -59,33 +76,11 @@
       </div>
     </section>
 
-    <!-- Programs -->
-    <section class="programs">
-      <div class="container">
-        <h2>Programs</h2>
-        <div class="programs-grid">
-          <div class="program-card">
-            <h3>Student Internship</h3>
-            <p>Offering valuable work experience and mentorship opportunities for students in various fields of technology and business.</p>
-          </div>
-          <div class="program-card">
-            <h3>Research & Development</h3>
-            <p>Conducting innovative research projects that advance technology solutions and address real-world challenges.</p>
-          </div>
-          <div class="program-card">
-            <h3>Community Services</h3>
-            <p>Supporting communities through technology education, digital literacy programs, and accessible tech solutions.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- About -->
     <section class="about">
       <div class="container">
-        <h2>About TEC-Bridge AI</h2>
-        <p>TEC-Bridge AI is dedicated to bridging the gap between technology, education, and culture with AI solutions that drive real results for organizations of all sizes.</p>
-        <p>Our mission is to make advanced AI technology accessible and beneficial for businesses across industries.</p>
+        <h2>About Us</h2>
+        <p>We are TEC-Bridge—a collective of individuals from diverse fields, united by a shared vision. Our team includes experienced IT professional and professor, innovative music artist and teacher, dynamic business performers, and ambitious college graduates, all driven by a singular goal: harnessing the transformative power of artificial intelligence to uplift and strengthen our community. By bridging the gap between cutting-edge technology and real-world impact, we aim to create solutions that foster connection, efficiency, and progress. TEC-Bridge AI stands at the crossroads of expertise and aspiration, working together to shape a smarter, more inclusive future.</p>
       </div>
     </section>
 
