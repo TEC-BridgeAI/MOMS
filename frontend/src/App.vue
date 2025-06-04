@@ -1,47 +1,12 @@
-<!-- frontend/src/App.vue -->
 <template>
   <div id="app">
-    <template v-if="!isAuthenticated">
-      <router-view />
-    </template>
-    <template v-else>
-      <app-header />
-      <div class="main-container">
-        <app-sidebar />
-        <main class="content">
-          <router-view />
-        </main>
-      </div>
-      <app-footer />
-    </template>
+    <router-view />
   </div>
 </template>
 
 <script>
-import AppHeader from '@/components/layout/AppHeader.vue'
-import AppSidebar from '@/components/layout/AppSidebar.vue'
-import AppFooter from '@/components/layout/AppFooter.vue'
-import { mapGetters } from 'vuex'
-
 export default {
-  name: 'App',
-  components: {
-    AppHeader,
-    AppSidebar,
-    AppFooter
-  },
-  computed: {
-    ...mapGetters('auth', ['isAuthenticated'])
-  },
-  created() {
-    // Clear any existing auth data on app start
-    this.$store.dispatch('auth/logout')
-    
-    // Redirect to login if not on login page
-    if (this.$route.path !== '/login') {
-      this.$router.push('/login')
-    }
-  }
+  name: 'App'
 }
 </script>
 
@@ -51,14 +16,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  margin: 0;
+  padding: 0;
 }
 
-.main-container {
-  display: flex;
-}
-
-.content {
-  flex: 1;
-  padding: 20px;
+body {
+  margin: 0;
+  padding: 0;
 }
 </style>

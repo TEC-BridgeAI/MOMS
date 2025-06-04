@@ -69,7 +69,7 @@ const routes = [
     component: ModulePlaceholder
   },   
   {
-    path: '/supply-chain',
+    path: '/supply_chain',
     name: 'Supply Chain',
     component: ModulePlaceholder
   }
