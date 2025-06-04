@@ -31,7 +31,7 @@ export default createStore({
       // This would be an API call in a real app
       console.log('Login with:', credentials)
       commit('SET_TOKEN', 'sample-token')
-      commit('SET_USER', { username: 'admin' })
+      commit('SET_USER', { username: credentials.username || 'admin' })
       return Promise.resolve()
     },
     logout({ commit }) {

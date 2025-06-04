@@ -1,12 +1,20 @@
 <template>
   <div class="home">
     <header class="header">
-      <h1>MOMS - Modular Organizational Management System</h1>
-      <p>A comprehensive business management platform</p>
+      <div class="header-content">
+        <img src="@/assets/logo.png" alt="TEC-Bridge AI Logo" class="logo">
+        <div>
+          <h1>TEC-Bridge AI Organizational Management System</h1>
+          <p>The internal comprehensive business management platform</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <logout-button />
+      </div>
     </header>
 
     <section class="intro">
-      <h2>Welcome to MOMS</h2>
+      <h2>Welcome to TEC-Bridge AI!</h2>
       <p>
         The Modular Organizational Management System (MOMS) is an integrated platform 
         designed to streamline business operations across multiple departments.
@@ -26,8 +34,13 @@
 </template>
 
 <script>
+import LogoutButton from '@/components/LogoutButton.vue'
+
 export default {
   name: 'HomePage',
+  components: {
+    LogoutButton
+  },
   data() {
     return {
       modules: [
@@ -105,12 +118,29 @@ export default {
 }
 
 .header {
-  text-align: center;
   margin-bottom: 40px;
   background-color: #0066cc;
   color: white;
   padding: 30px;
   border-radius: 5px;
+  position: relative;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.header-actions {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  margin-right: 20px;
 }
 
 .header h1 {
